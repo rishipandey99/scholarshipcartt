@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ScholarshipKart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    <link href="css/style.css" rel="stylesheet">
+  </head>
+  <body>
+    <header class="site-header sticky-top">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-xl">
+          <a class="navbar-brand brand-logo" href="./index.html" aria-label="ScholarshipKart home">
+            <img class="brand-img" src="./assets/images/figma/Copy of Scholarship Kart- Logo- PNG 1.png" alt="ScholarshipKart">
+          </a>
+          <a class="btn btn-primary-pill" href="#contact">Call Now To Get Started</a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero-section">
+        <div class="container-xl">
+          <div class="hero-panel">
+            <div class="hero-copy">
+              <h1>Get Into Top Global Universities with Expert Guidance</h1>
+              <p>End-to-end study abroad support from counselling to visa &amp; scholarships</p>
+            </div>
+            <form class="consult-card" aria-label="Free consultation form">
+              <h2>Unlock Global Opportunities</h2>
+              <p>Speak with our advisors and take the first step toward your international education</p>
+              <div class="consult-grid">
+                <input type="text" name="fullName" placeholder="Full Name" aria-label="Full Name" autocomplete="name">
+                <input type="tel" name="phone" placeholder="Phone Number" aria-label="Phone Number" autocomplete="tel">
+                <input type="email" name="email" placeholder="Email Address" aria-label="Email Address" autocomplete="email">
+                <select name="destination" aria-label="Destination">
+                  <option value="" selected disabled>Destination</option>
+                  <option value="uk">UK</option>
+                  <option value="canada">Canada</option>
+                  <option value="australia">Australia</option>
+                  <option value="ireland">Ireland</option>
+                  <option value="usa">USA</option>
+                </select>
+                <textarea name="requirement" placeholder="Any Specific Requirement? (Optional)" aria-label="Any Specific Requirement"></textarea>
+              </div>
+              <button class="consult-submit" type="submit">Book Free Counselling</button>
+            </form>
+          </div>
+          <div class="feature-strip" id="featureCards"></div>
+        </div>
+      </section>
+
+      <section class="section services-section" id="services">
+        <div class="container-xl">
+          <div class="section-title">
+            <h2>Our Services</h2>
+            <p>Trained by the globally recognised universities to help students secure admissions faster.</p>
+          </div>
+          <div class="services-visual">
+            <div class="services-tabs-art" id="serviceMenu" role="tablist" aria-label="Service stages"></div>
+            <article class="services-card-art service-detail-panel" id="serviceDetail" aria-live="polite"></article>
+            <div class="services-photo-art">
+              <img id="serviceImage" src="./assets/images/figma/Group 1321314081.png" alt="Students walking on campus" loading="lazy" decoding="async">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section program-section">
+        <div class="container-xl">
+          <div class="section-title">
+            <h2>Get Into The Programme Of Your Choice</h2>
+            <p>Trained by the globally recognised universities to help students secure admissions faster.</p>
+          </div>
+          <div class="figma-crop program-export program-export-crop" aria-hidden="true">
+            <img class="figma-section-img" src="./assets/images/figma/Group 1000004188.png" alt="" loading="lazy" decoding="async">
+          </div>
+        </div>
+      </section>
+
+      <section class="what-section">
+        <div class="container-xl">
+          <div class="section-title section-title-light">
+            <h2>WHAT WE DO</h2>
+            <p>Trained by the globally recognised universities to help students secure admissions faster. Explore the most preferred countries for quality education, global exposure, and career opportunities</p>
+          </div>
+          <div class="row g-4" id="whatCards"></div>
+        </div>
+      </section>
+
+      <section class="section destination-section">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-12">
+              <div class="section-title">
+                <h2>Study Destinations</h2>
+                <p>Trained by the globally recognised universities to help students secure admissions faster.</p>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="slider-shell destination-shell">
+                <button class="slider-arrow destination-prev" type="button" aria-label="Previous destination"><i class="bi bi-chevron-left"></i></button>
+                <div class="destination-window">
+                  <div class="swiper destinationSwiper">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <article class="destination-card">
+                          <img src="./assets/images/uk.png" alt="UK study destination" loading="lazy" decoding="async">
+                          <span class="flag-badge"><img src="./assets/images/flag-uk.svg" alt="" loading="lazy" decoding="async"></span>
+                          <h3>Study in UK</h3>
+                        </article>
+                      </div>
+                      <div class="swiper-slide">
+                        <article class="destination-card">
+                          <img src="./assets/images/canada.png" alt="Canada study destination" loading="lazy" decoding="async">
+                          <span class="flag-badge"><img src="./assets/images/flag-canada.svg" alt="" loading="lazy" decoding="async"></span>
+                          <h3>Study in Canada</h3>
+                        </article>
+                      </div>
+                      <div class="swiper-slide">
+                        <article class="destination-card">
+                          <img src="./assets/images/australia.png" alt="Australia study destination" loading="lazy" decoding="async">
+                          <span class="flag-badge"><img src="./assets/images/flag-australia.svg" alt="" loading="lazy" decoding="async"></span>
+                          <h3>Study in Australia</h3>
+                        </article>
+                      </div>
+                      <div class="swiper-slide">
+                        <article class="destination-card">
+                          <img src="./assets/images/ireland.png" alt="Ireland study destination" loading="lazy" decoding="async">
+                          <span class="flag-badge"><img src="./assets/images/flag-ireland.svg" alt="" loading="lazy" decoding="async"></span>
+                          <h3>Study in Ireland</h3>
+                        </article>
+                      </div>
+                      <div class="swiper-slide">
+                        <article class="destination-card">
+                          <img src="./assets/images/usa.png" alt="USA study destination" loading="lazy" decoding="async">
+                          <span class="flag-badge"><img src="./assets/images/flag-usa.svg" alt="" loading="lazy" decoding="async"></span>
+                          <h3>Study in USA</h3>
+                        </article>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button class="slider-arrow destination-next" type="button" aria-label="Next destination"><i class="bi bi-chevron-right"></i></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="about-section">
+        <div class="container-xl">
+          <img class="figma-section-img about-export" src="./assets/images/figma/Group 2683.png" alt="About Scholarship" loading="lazy" decoding="async">
+        </div>
+      </section>
+
+      <section class="section partners-section">
+        <div class="container-fluid px-0">
+          <div class="section-title">
+            <h2>Our Partners</h2>
+            <p>Trained by the globally recognised universities to help students secure admissions faster.</p>
+          </div>
+          <div class="partner-rows" aria-hidden="true">
+            <div class="partner-marquee partner-left">
+              <div class="partner-track" id="partnersTop"></div>
+            </div>
+
+            <div class="partner-marquee partner-right">
+              <div class="partner-track" id="partnersBottom"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="why-section">
+        <div class="container-xl">
+          <img class="figma-section-img why-export" src="./assets/images/figma/Group 1000001855.png" alt="Why Choose Us" loading="lazy" decoding="async">
+        </div>
+      </section>
+
+      <section class="section testimonial-section">
+        <div class="container-xl">
+          <div class="section-title">
+            <h2>Students Trust Us</h2>
+            <p>Trained by the globally recognised universities to help students secure admissions faster.</p>
+          </div>
+
+          <div class="testimonial-slider fade-on-scroll" aria-label="Student testimonials">
+            <button class="testimonial-nav testimonial-prev" type="button" aria-label="Previous testimonial">
+              <i class="bi bi-chevron-left"></i>
+            </button>
+
+            <div class="swiper testimonialSwiper">
+              <div class="swiper-wrapper" id="testimonialTrack"></div>
+            </div>
+
+            <button class="testimonial-nav testimonial-next" type="button" aria-label="Next testimonial">
+              <i class="bi bi-chevron-right"></i>
+            </button>
+
+            <div class="testimonial-dots swiper-pagination" id="testimonialDots" aria-label="Testimonial pagination"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section" id="contact">
+        <div class="container-xl">
+          <div class="section-title">
+            <h2>Contact Us</h2>
+            <p>Trained by the globally recognised universities to help students secure admissions faster.</p>
+          </div>
+          <form class="contact-form">
+            <div class="row g-5">
+              <div class="col-md-6"><input type="text" placeholder="Name" aria-label="Name"></div>
+              <div class="col-md-6"><input type="email" placeholder="Email" aria-label="Email"></div>
+            </div>
+            <button type="submit">TALK TO EXPERT <i class="bi bi-arrow-right"></i></button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <a class="whatsapp-float" href="#contact" aria-label="Contact ScholarshipKart">
+      <img src="./assets/images/figma/whatsapp-sign.png" alt="" loading="lazy" decoding="async">
+    </a>
+
+    <footer class="site-footer">
+      <p>Copyright 2025 Scholarshipkart</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<script src="js/script.js"></script>
+  </body>
+</html>
