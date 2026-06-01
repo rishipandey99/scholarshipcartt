@@ -1,95 +1,12 @@
-const featureCards = [
-  { image: "./assets/images/figma/Group 1000001827 (2).png", title: "British Council Certified Counsellors" },
-  { image: "./assets/images/figma/Group 1000001827.png", title: "High Visa Success Commitment" },
-  { image: "./assets/images/figma/Group 1000001827 (1).png", title: "Global University Network" }
-];
-
-const services = [
-  {
-    title: "Planning Stage",
-    icon: "bi-chat-square-text-fill",
-    description: "ScholarshipKart is an IT-enabled education consultancy focused on helping students plan their international education with accurate, real-time information on universities.",
-    image: "./assets/images/figma/Group 1321314081.png",
-    imageAlt: "Students walking on campus"
-  },
-  {
-    title: "Application Stage",
-    icon: "bi-file-earmark-text-fill",
-    description: "Get expert shortlisting, application review, SOP guidance, document preparation, and submission support for leading global universities.",
-    image: "./assets/images/figma/Group 1321314081.png",
-    imageAlt: "Students walking on campus"
-  },
-  {
-    title: "Execution Stage",
-    icon: "bi-airplane-engines-fill",
-    description: "Complete your admissions journey with offer support, visa guidance, scholarship help, accommodation planning, and pre-departure readiness.",
-    image: "./assets/images/figma/Group 1321314081.png",
-    imageAlt: "Students walking on campus"
-  }
-];
-
-const whatWeDo = [
-  { icon: "bi-chat-square-text-fill", title: "Counselling" },
-  { icon: "bi-file-earmark-text-fill", title: "Admission" },
-  { icon: "bi-passport-fill", title: "Visa" },
-  { icon: "bi-mortarboard-fill", title: "Scholarships" }
-];
-
-const partners = [
-  { name: "Travel", className: "logo-travel" },
-  { name: "Octane", className: "logo-octane", sub: "FITNESS" },
-  { name: "LifeFitness", className: "logo-life", sub: "interactive fitness solutions" },
-  { name: "Smile", className: "logo-smile" },
-  { name: "TRUE", className: "logo-true" },
-  { name: "CYBEX", className: "logo-cybex" },
-  { name: "Mockup", className: "logo-mockup" },
-  { name: "PRECOR", className: "logo-precor" }
-];
-
-const testimonials = [
-  {
-    university: "University name",
-    image: "./assets/images/student-testimonial.png",
-    name: "Dazzle Healer",
-    role: "Front End Developer",
-    review: "I've used other kits, but this one is the best. The attention to detail and usability are truly amazing."
-  },
-  {
-    university: "University name",
-    image: "./assets/images/student-testimonial.png",
-    name: "Dazzle Healer",
-    role: "Front End Developer",
-    review: "I've used other kits, but this one is the best. The attention to detail and usability are truly amazing."
-  },
-  {
-    university: "University name",
-    image: "./assets/images/student-testimonial.png",
-    name: "Dazzle Healer",
-    role: "Front End Developer",
-    review: "I've used other kits, but this one is the best. The attention to detail and usability are truly amazing."
-  },
-  {
-    university: "University name",
-    image: "./assets/images/student-testimonial.png",
-    name: "Dazzle Healer",
-    role: "Front End Developer",
-    review: "I've used other kits, but this one is the best. The attention to detail and usability are truly amazing."
-  },
-  {
-    university: "University name",
-    image: "./assets/images/student-testimonial.png",
-    name: "Dazzle Healer",
-    role: "Front End Developer",
-    review: "I've used other kits, but this one is the best. The attention to detail and usability are truly amazing."
-  }
-];
+const siteData = window.scholarshipKartData;
 
 function renderFeatureCards() {
   const featureRoot = document.getElementById("featureCards");
   if (!featureRoot) return;
-  featureRoot.innerHTML = featureCards.map(card => `
+  featureRoot.innerHTML = siteData.heroFeatures.map(card => `
     <article class="feature-card">
       <img src="${card.image}" alt="${card.title}" loading="lazy" decoding="async">
+      <span>${card.title}</span>
     </article>
   `).join("");
 }
@@ -105,7 +22,7 @@ function renderServices() {
       <i class="bi ${service.icon}" aria-hidden="true"></i>
       <h3>${service.title}</h3>
       <p>${service.description}</p>
-      <a href="#contact" class="link-arrow">Learn More <i class="bi bi-arrow-right"></i></a>
+      <a href="${service.link}" class="link-arrow">${service.buttonText} <i class="bi bi-arrow-right"></i></a>
     `;
 
     if (image) {
@@ -115,7 +32,7 @@ function renderServices() {
   }
 
   function setService(index, immediate = false) {
-    const service = services[index];
+    const service = siteData.services[index];
     menu.querySelectorAll(".service-tab-art").forEach((button, buttonIndex) => {
       button.classList.toggle("active", buttonIndex === index);
       button.setAttribute("aria-selected", String(buttonIndex === index));
@@ -136,7 +53,7 @@ function renderServices() {
     }, 180);
   }
 
-  menu.innerHTML = services.map((service, index) => `
+  menu.innerHTML = siteData.services.map((service, index) => `
     <button class="service-tab-art ${index === 0 ? "active" : ""}" type="button" role="tab" aria-selected="${index === 0}" data-service="${index}">${service.title}</button>
   `).join("");
 
@@ -149,26 +66,79 @@ function renderServices() {
   setService(0, true);
 }
 
+function renderProgrammeCards() {
+  const programmeRoot = document.getElementById("programmeCards");
+  if (!programmeRoot) return;
+  programmeRoot.innerHTML = siteData.programmes.map(programme => `
+    <article class="programme-card ${programme.imageFirst ? "programme-card-image-first" : ""}">
+      <div class="programme-copy">
+        <img class="programme-icon" src="${programme.icon}" alt="" loading="lazy" decoding="async">
+        <h3>${programme.title}</h3>
+        <p>${programme.description}</p>
+      </div>
+      <img class="programme-photo" src="${programme.image}" alt="${programme.imageAlt}" loading="lazy" decoding="async">
+    </article>
+  `).join("");
+}
+
 function renderWhatCards() {
   const whatRoot = document.getElementById("whatCards");
   if (!whatRoot) return;
-  whatRoot.innerHTML = whatWeDo.map(item => `
+  whatRoot.innerHTML = siteData.whatWeDo.map(item => `
     <div class="col-lg-3 col-md-6">
       <article class="what-card">
-        <i class="bi ${item.icon}" aria-hidden="true"></i>
+        <img class="what-card-icon" src="${item.icon}" alt="" loading="lazy" decoding="async">
         <h3>${item.title}</h3>
-        <p>ScholarshipKart is an IT-enabled education consultancy focused on helping students plan their international education with accurate, real-time information on universities.</p>
+        <p>${siteData.whatWeDoDescription}</p>
         <a href="#contact" class="link-arrow what-link-arrow" aria-label="Learn more about ${item.title}">
-          <img src="./assets/images/figma/Group 1000001838.png" alt="" loading="lazy" decoding="async">
+          <img src="./assets/icons/what-arrow.png" alt="" loading="lazy" decoding="async">
         </a>
       </article>
     </div>
   `).join("");
 }
 
+function renderDestinations() {
+  const track = document.getElementById("destinationTrack");
+  if (!track) return;
+  track.innerHTML = siteData.destinations.map(destination => `
+    <div class="swiper-slide">
+      <article class="destination-card">
+        <img src="${destination.image}" alt="${destination.imageAlt}" loading="lazy" decoding="async">
+        <span class="flag-badge"><img src="${destination.flag}" alt="" loading="lazy" decoding="async"></span>
+        <h3>${destination.title}</h3>
+      </article>
+    </div>
+  `).join("");
+}
+
+function renderAboutScholarship() {
+  const root = document.getElementById("aboutScholarship");
+  const about = siteData.aboutScholarship;
+  if (!root) return;
+  root.innerHTML = `
+    <article class="content-showcase content-showcase-about">
+      <div class="content-card">
+        <h2>${about.title}</h2>
+        <p>${about.description}</p>
+        <ul>
+          ${about.bullets.map(item => `<li>${item}</li>`).join("")}
+        </ul>
+        <a class="showcase-cta" href="${about.link}">
+          <span>${about.buttonText}</span>
+          <img src="./assets/icons/cta-arrow.png" alt="" loading="lazy" decoding="async">
+        </a>
+      </div>
+      <figure class="showcase-media">
+        <img src="${about.image}" alt="${about.imageAlt}" loading="lazy" decoding="async">
+      </figure>
+    </article>
+  `;
+}
+
 function renderPartners() {
   if (!document.getElementById("partnersTop") || !document.getElementById("partnersBottom")) return;
-  const logos = partners.map(partner => `
+  const logos = siteData.partners.map(partner => `
     <div class="partner-logo">
       <span class="logo-badge ${partner.className}">
         ${partner.name}
@@ -182,11 +152,37 @@ function renderPartners() {
   document.getElementById("partnersBottom").innerHTML = markup;
 }
 
+function renderWhyChooseUs() {
+  const root = document.getElementById("whyChooseUs");
+  const why = siteData.whyChooseUs;
+  if (!root) return;
+  root.innerHTML = `
+    <article class="why-layout">
+      <div class="why-copy">
+        <h2>${why.title}</h2>
+        <p>${why.description}</p>
+        <div class="why-feature-grid">
+          ${why.features.map(feature => `
+            <article class="feature-item-card">
+              <img src="${feature.icon}" alt="" loading="lazy" decoding="async">
+              <h3>${feature.title}</h3>
+              <p>${feature.description}</p>
+            </article>
+          `).join("")}
+        </div>
+      </div>
+      <figure class="why-media">
+        <img src="${why.image}" alt="${why.imageAlt}" loading="lazy" decoding="async">
+      </figure>
+    </article>
+  `;
+}
+
 function renderTestimonials() {
   const track = document.getElementById("testimonialTrack");
   const dots = document.getElementById("testimonialDots");
   if (!track || !window.Swiper) return;
-  const sliderItems = [...testimonials, ...testimonials];
+  const sliderItems = [...siteData.testimonials, ...siteData.testimonials];
 
   track.innerHTML = sliderItems.map(item => `
     <div class="swiper-slide">
@@ -211,7 +207,7 @@ function renderTestimonials() {
   `).join("");
 
   if (dots) {
-    dots.innerHTML = testimonials.map((_, index) => `
+    dots.innerHTML = siteData.testimonials.map((_, index) => `
       <button class="testimonial-dot ${index === 0 ? "active" : ""}" type="button" aria-label="Show testimonial ${index + 1}" data-testimonial-dot="${index}"></button>
     `).join("");
   }
@@ -220,7 +216,7 @@ function renderTestimonials() {
     slidesPerView: 1,
     spaceBetween: 12,
     loop: true,
-    loopAdditionalSlides: testimonials.length,
+    loopAdditionalSlides: siteData.testimonials.length,
     speed: 650,
     grabCursor: true,
     watchOverflow: true,
@@ -251,7 +247,7 @@ function renderTestimonials() {
 
   function setActiveDot() {
     dots?.querySelectorAll(".testimonial-dot").forEach((dot, index) => {
-      dot.classList.toggle("active", index === testimonialSwiper.realIndex % testimonials.length);
+      dot.classList.toggle("active", index === testimonialSwiper.realIndex % siteData.testimonials.length);
     });
   }
 
@@ -263,6 +259,41 @@ function renderTestimonials() {
 
   testimonialSwiper.on("slideChange", setActiveDot);
   setActiveDot();
+}
+
+function initDestinationSlider() {
+  if (!document.querySelector(".destinationSwiper") || !window.Swiper) return;
+  new Swiper(".destinationSwiper", {
+    slidesPerView: 4.2,
+    spaceBetween: 8,
+    loop: true,
+    slideToClickedSlide: true,
+    speed: 700,
+    autoplay: {
+      delay: 2600,
+    },
+    navigation: {
+      nextEl: ".destination-next",
+      prevEl: ".destination-prev",
+    },
+    breakpoints: {
+      0: {
+        slidesPerView: 1.2,
+      },
+      576: {
+        slidesPerView: 2,
+      },
+      768: {
+        slidesPerView: 2.5,
+      },
+      992: {
+        slidesPerView: 4.2,
+      },
+      1200: {
+        slidesPerView: 4.2,
+      }
+    }
+  });
 }
 
 function initScrollAnimations() {
@@ -296,46 +327,14 @@ function initStaticForms() {
 document.addEventListener("DOMContentLoaded", () => {
   renderFeatureCards();
   renderServices();
+  renderProgrammeCards();
   renderWhatCards();
-
+  renderDestinations();
+  renderAboutScholarship();
   renderPartners();
+  renderWhyChooseUs();
   renderTestimonials();
+  initDestinationSlider();
   initScrollAnimations();
   initStaticForms();
 });
-if (document.querySelector(".destinationSwiper") && window.Swiper) {
-  const swiper = new Swiper(".destinationSwiper", {
-    slidesPerView: 4.2,
-    spaceBetween: 8,
-    loop: true,
-    slideToClickedSlide: true,
-    speed: 700,
-
-    autoplay: {
-      delay: 2600,
-    },
-
-    navigation: {
-      nextEl: ".destination-next",
-      prevEl: ".destination-prev",
-    },
-
-    breakpoints: {
-      0: {
-        slidesPerView: 1.2, 
-      },
-      576: {
-        slidesPerView:2, 
-      },
-      768: {
-        slidesPerView: 2.5, 
-      },
-      992: {
-        slidesPerView: 4.2, 
-      },
-      1200: {
-        slidesPerView: 4.2,
-      }
-    }
-  });
-}

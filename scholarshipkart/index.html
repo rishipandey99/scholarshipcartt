@@ -15,9 +15,9 @@
   <body>
     <header class="site-header sticky-top">
       <nav class="navbar navbar-expand-lg">
-        <div class="container-xl">
+        <div class="container">
           <a class="navbar-brand brand-logo" href="./index.html" aria-label="ScholarshipKart home">
-            <img class="brand-img" src="./assets/images/figma/Copy of Scholarship Kart- Logo- PNG 1.png" alt="ScholarshipKart">
+            <img class="brand-img" src="./assets/images/scholarshipkart-logo.png" alt="ScholarshipKart">
           </a>
           <a class="btn btn-primary-pill" href="#contact">Call Now To Get Started</a>
         </div>
@@ -26,7 +26,7 @@
 
     <main>
       <section class="hero-section">
-        <div class="container-xl">
+        <div class="container">
           <div class="hero-panel">
             <div class="hero-copy">
               <h1>Get Into Top Global Universities with Expert Guidance</h1>
@@ -57,7 +57,7 @@
       </section>
 
       <section class="section services-section" id="services">
-        <div class="container-xl">
+        <div class="container">
           <div class="section-title">
             <h2>Our Services</h2>
             <p>Trained by the globally recognised universities to help students secure admissions faster.</p>
@@ -66,26 +66,24 @@
             <div class="services-tabs-art" id="serviceMenu" role="tablist" aria-label="Service stages"></div>
             <article class="services-card-art service-detail-panel" id="serviceDetail" aria-live="polite"></article>
             <div class="services-photo-art">
-              <img id="serviceImage" src="./assets/images/figma/Group 1321314081.png" alt="Students walking on campus" loading="lazy" decoding="async">
+              <img id="serviceImage" src="./assets/images/services-students-campus.png" alt="Students walking on campus" loading="lazy" decoding="async">
             </div>
           </div>
         </div>
       </section>
 
       <section class="section program-section">
-        <div class="container-xl">
+        <div class="container">
           <div class="section-title">
             <h2>Get Into The Programme Of Your Choice</h2>
             <p>Trained by the globally recognised universities to help students secure admissions faster.</p>
           </div>
-          <div class="figma-crop program-export program-export-crop" aria-hidden="true">
-            <img class="figma-section-img" src="./assets/images/figma/Group 1000004188.png" alt="" loading="lazy" decoding="async">
-          </div>
+          <div class="programme-grid" id="programmeCards"></div>
         </div>
       </section>
 
       <section class="what-section">
-        <div class="container-xl">
+        <div class="container">
           <div class="section-title section-title-light">
             <h2>WHAT WE DO</h2>
             <p>Trained by the globally recognised universities to help students secure admissions faster. Explore the most preferred countries for quality education, global exposure, and career opportunities</p>
@@ -95,7 +93,7 @@
       </section>
 
       <section class="section destination-section">
-        <div class="container-fluid">
+        <div class="container">
           <div class="row">
             <div class="col-12">
               <div class="section-title">
@@ -108,43 +106,7 @@
                 <button class="slider-arrow destination-prev" type="button" aria-label="Previous destination"><i class="bi bi-chevron-left"></i></button>
                 <div class="destination-window">
                   <div class="swiper destinationSwiper">
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide">
-                        <article class="destination-card">
-                          <img src="./assets/images/uk.png" alt="UK study destination" loading="lazy" decoding="async">
-                          <span class="flag-badge"><img src="./assets/images/flag-uk.svg" alt="" loading="lazy" decoding="async"></span>
-                          <h3>Study in UK</h3>
-                        </article>
-                      </div>
-                      <div class="swiper-slide">
-                        <article class="destination-card">
-                          <img src="./assets/images/canada.png" alt="Canada study destination" loading="lazy" decoding="async">
-                          <span class="flag-badge"><img src="./assets/images/flag-canada.svg" alt="" loading="lazy" decoding="async"></span>
-                          <h3>Study in Canada</h3>
-                        </article>
-                      </div>
-                      <div class="swiper-slide">
-                        <article class="destination-card">
-                          <img src="./assets/images/australia.png" alt="Australia study destination" loading="lazy" decoding="async">
-                          <span class="flag-badge"><img src="./assets/images/flag-australia.svg" alt="" loading="lazy" decoding="async"></span>
-                          <h3>Study in Australia</h3>
-                        </article>
-                      </div>
-                      <div class="swiper-slide">
-                        <article class="destination-card">
-                          <img src="./assets/images/ireland.png" alt="Ireland study destination" loading="lazy" decoding="async">
-                          <span class="flag-badge"><img src="./assets/images/flag-ireland.svg" alt="" loading="lazy" decoding="async"></span>
-                          <h3>Study in Ireland</h3>
-                        </article>
-                      </div>
-                      <div class="swiper-slide">
-                        <article class="destination-card">
-                          <img src="./assets/images/usa.png" alt="USA study destination" loading="lazy" decoding="async">
-                          <span class="flag-badge"><img src="./assets/images/flag-usa.svg" alt="" loading="lazy" decoding="async"></span>
-                          <h3>Study in USA</h3>
-                        </article>
-                      </div>
-                    </div>
+                    <div class="swiper-wrapper" id="destinationTrack"></div>
                   </div>
                 </div>
                 <button class="slider-arrow destination-next" type="button" aria-label="Next destination"><i class="bi bi-chevron-right"></i></button>
@@ -155,13 +117,13 @@
       </section>
 
       <section class="about-section">
-        <div class="container-xl">
-          <img class="figma-section-img about-export" src="./assets/images/figma/Group 2683.png" alt="About Scholarship" loading="lazy" decoding="async">
+        <div class="container">
+          <div id="aboutScholarship"></div>
         </div>
       </section>
 
       <section class="section partners-section">
-        <div class="container-fluid px-0">
+        <div class="container">
           <div class="section-title">
             <h2>Our Partners</h2>
             <p>Trained by the globally recognised universities to help students secure admissions faster.</p>
@@ -179,13 +141,13 @@
       </section>
 
       <section class="why-section">
-        <div class="container-xl">
-          <img class="figma-section-img why-export" src="./assets/images/figma/Group 1000001855.png" alt="Why Choose Us" loading="lazy" decoding="async">
+        <div class="container">
+          <div id="whyChooseUs"></div>
         </div>
       </section>
 
       <section class="section testimonial-section">
-        <div class="container-xl">
+        <div class="container">
           <div class="section-title">
             <h2>Students Trust Us</h2>
             <p>Trained by the globally recognised universities to help students secure admissions faster.</p>
@@ -210,7 +172,7 @@
       </section>
 
       <section class="contact-section" id="contact">
-        <div class="container-xl">
+        <div class="container">
           <div class="section-title">
             <h2>Contact Us</h2>
             <p>Trained by the globally recognised universities to help students secure admissions faster.</p>
@@ -227,7 +189,7 @@
     </main>
 
     <a class="whatsapp-float" href="#contact" aria-label="Contact ScholarshipKart">
-      <img src="./assets/images/figma/whatsapp-sign.png" alt="" loading="lazy" decoding="async">
+      <img src="./assets/icons/whatsapp-sign.png" alt="" loading="lazy" decoding="async">
     </a>
 
     <footer class="site-footer">
@@ -237,6 +199,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-<script src="js/script.js"></script>
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
   </body>
 </html>
