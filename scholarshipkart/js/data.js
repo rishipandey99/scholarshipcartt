@@ -127,41 +127,47 @@ const scholarshipKartData = {
       }
     ]
   },
+  testimonialSection: {
+    title: "Students Trust Us",
+    subtitle: "Trained by the globally recognised universities to help students secure admissions faster."
+  },
+  // To edit this section later, add/remove/change testimonial objects below.
+  // Required fields: university, image, name, shortText. Optional field: moreText.
   testimonials: [
     {
-      university: "University name",
-      image: "./assets/images/student-testimonial.png",
-      name: "Dazzle Healer",
-      role: "Front End Developer",
-      review: "I've used other kits, but this one is the best. The attention to detail and usability are truly amazing."
+      university: "University of Birmingham",
+      image: "./images/nimit.png",
+      name: "Nimit Patel",
+      shortText: "Dubai -university of birmingham -msc Acc and Finance ( I am truly grateful to Sunita",
+      moreText: "Ma'am for her constant support and guidance throughout my master's application process. From the very beginning, she explained every step clearly and helped me prepare strong applications. She was always approachable, patient, and professional, answering all my questions with care. Thanks to her dedicated efforts I successfully secured admission for my Master's in Dubai. I highly recommend Sunita Ma'am to anyone looking for expert guidance in their higher education journey.)"
     },
     {
-      university: "University name",
-      image: "./assets/images/student-testimonial.png",
-      name: "Dazzle Healer",
-      role: "Front End Developer",
-      review: "I've used other kits, but this one is the best. The attention to detail and usability are truly amazing."
+      university: "University Of Strathclyde",
+      image: "./images/Kashmira_Strath.png",
+      name: "Kashmira Patil",
+      shortText: "University Of Strathclyde -UK - MSc Advanced Construction Technologies and BIM",
+      moreText: ""
     },
     {
-      university: "University name",
-      image: "./assets/images/student-testimonial.png",
-      name: "Dazzle Healer",
-      role: "Front End Developer",
-      review: "I've used other kits, but this one is the best. The attention to detail and usability are truly amazing."
+      university: "Uni of Nottingham",
+      image: "./images/testimonial-img.jpg",
+      name: "Kejal Manoj Pardeshi",
+      shortText: "Uni of Nottingham -UK - MSc Sports and Exercise Medicine  ( I have had a lovely",
+      moreText: "experience with scholarshipkart and sunita ma'am. She is amazing at what she does and will guide you through this process and make it as smooth for you as possible. With clear information from the beginning and regular updates about the process I cannot thank her enough for her support throughout.)"
     },
     {
-      university: "University name",
-      image: "./assets/images/student-testimonial.png",
-      name: "Dazzle Healer",
-      role: "Front End Developer",
-      review: "I've used other kits, but this one is the best. The attention to detail and usability are truly amazing."
+      university: "SKema Business school",
+      image: "./images/testimonial-img.jpg",
+      name: "Mishka Tillu",
+      shortText: "SKema Business school -France - Msc International Marketing and Business Development",
+      moreText: ""
     },
     {
-      university: "University name",
-      image: "./assets/images/student-testimonial.png",
-      name: "Dazzle Healer",
-      role: "Front End Developer",
-      review: "I've used other kits, but this one is the best. The attention to detail and usability are truly amazing."
+      university: "MET Film School",
+      image: "./images/testimonial-img.jpg",
+      name: "Ameya Gill",
+      shortText: "MET Film School - BA Film -cant get her photo -she is high profile bollywood family gal",
+      moreText: ""
     }
   ]
 };

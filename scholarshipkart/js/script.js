@@ -22,7 +22,7 @@ function renderServices() {
       <i class="bi ${service.icon}" aria-hidden="true"></i>
       <h3>${service.title}</h3>
       <p>${service.description}</p>
-      <a href="${service.link}" class="link-arrow">${service.buttonText} <i class="bi bi-arrow-right"></i></a>
+      <a href="${service.link}" class="link-arrow">${service.buttonText} <i class="bi bi-arrow-right" aria-hidden="true"></i></a>
     `;
 
     if (image) {
@@ -104,8 +104,8 @@ function renderDestinations() {
   track.innerHTML = siteData.destinations.map(destination => `
     <div class="swiper-slide">
       <article class="destination-card">
-        <img src="${destination.image}" alt="${destination.imageAlt}" loading="lazy" decoding="async">
-        <span class="flag-badge"><img src="${destination.flag}" alt="" loading="lazy" decoding="async"></span>
+        <img src="${destination.image}" alt="${destination.imageAlt}" decoding="async">
+        <span class="flag-badge"><img src="${destination.flag}" alt="${destination.title} flag" decoding="async"></span>
         <h3>${destination.title}</h3>
       </article>
     </div>
@@ -139,7 +139,7 @@ function renderAboutScholarship() {
 function renderPartners() {
   if (!document.getElementById("partnersTop") || !document.getElementById("partnersBottom")) return;
   const logos = siteData.partners.map(partner => `
-    <div class="partner-logo">
+    <div class="partner-logo" aria-label="${partner.name}">
       <span class="logo-badge ${partner.className}">
         ${partner.name}
         ${partner.sub ? `<span class="logo-sub">${partner.sub}</span>` : ""}
@@ -180,89 +180,119 @@ function renderWhyChooseUs() {
 
 function renderTestimonials() {
   const track = document.getElementById("testimonialTrack");
-  const dots = document.getElementById("testimonialDots");
+  const title = document.getElementById("testimonialSectionTitle");
+  const subtitle = document.getElementById("testimonialSectionSubtitle");
   if (!track || !window.Swiper) return;
-  const sliderItems = [...siteData.testimonials, ...siteData.testimonials];
 
-  track.innerHTML = sliderItems.map(item => `
+  if (title && siteData.testimonialSection?.title) title.textContent = siteData.testimonialSection.title;
+  if (subtitle && siteData.testimonialSection?.subtitle) subtitle.textContent = siteData.testimonialSection.subtitle;
+
+  track.innerHTML = siteData.testimonials.map((item, index) => {
+    const shortText = item.shortText || [item.role, item.review ? `(${item.review}` : ""].filter(Boolean).join(" ");
+    const moreText = item.moreText || item.fullReview || "";
+    return `
     <div class="swiper-slide">
-      <article class="testimonial-card">
-        <div class="testimonial-top">
-          <h3>${item.university}</h3>
-          <div class="stars" aria-label="5 stars">${"<span>&#9733;</span>".repeat(5)}</div>
-          <svg class="testimonial-wave" viewBox="0 0 316 56" preserveAspectRatio="none" aria-hidden="true">
-            <path d="M0 31C67 46 125 51 184 46C232 42 276 35 316 27V56H0V31Z"></path>
-          </svg>
-          <span class="student-photo-wrap">
-            <img class="student-photo" src="${item.image}" alt="${item.name}" loading="lazy" decoding="async">
-          </span>
+      <div class="testi-card">
+        <div class="card-top">
+          <h6>${item.university}</h6>
+          <div class="stars" aria-label="5 stars">
+            ${'<img src="images/Star.png" alt="Star">'.repeat(5)}
+          </div>
         </div>
-        <div class="testimonial-body">
-          <h4>${item.name}</h4>
-          <span class="testimonial-role">${item.role}</span>
-          <p>${item.review}</p>
+        <div class="profile-img-wrapper">
+          <img src="${item.image}" alt="${item.name}" loading="lazy" decoding="async">
         </div>
-      </article>
+        <div class="card-bottom">
+          <h5>${item.name}</h5>
+          <p class="review">${shortText}</p>
+          ${moreText ? `<p class="moretext review"> ${moreText}</p><a class="moreless-button" href="#" data-testimonial-index="${index}">Read more</a>` : ""}
+        </div>
+      </div>
     </div>
-  `).join("");
+  `;
+  }).join("");
 
-  if (dots) {
-    dots.innerHTML = siteData.testimonials.map((_, index) => `
-      <button class="testimonial-dot ${index === 0 ? "active" : ""}" type="button" aria-label="Show testimonial ${index + 1}" data-testimonial-dot="${index}"></button>
-    `).join("");
-  }
-
-  const testimonialSwiper = new Swiper(".testimonialSwiper", {
-    slidesPerView: 1,
-    spaceBetween: 12,
-    loop: true,
-    loopAdditionalSlides: siteData.testimonials.length,
-    speed: 650,
+  new Swiper(".mySwiper", {
+    spaceBetween: 15,
     grabCursor: true,
-    watchOverflow: true,
     autoplay: {
       delay: 3000,
       disableOnInteraction: false,
-      pauseOnMouseEnter: true,
-    },
-    navigation: {
-      nextEl: ".testimonial-next",
-      prevEl: ".testimonial-prev",
     },
     breakpoints: {
+      320: {
+        slidesPerView: 1.2,
+        spaceBetween: 15,
+        centeredSlides: true
+      },
+      576: {
+        slidesPerView: 2.2,
+        spaceBetween: 20,
+        centeredSlides: true
+      },
       768: {
-        slidesPerView: 2,
-        spaceBetween: 12,
+        slidesPerView: 3,
+        spaceBetween: 15
       },
       992: {
         slidesPerView: 4,
-        spaceBetween: 12,
+        spaceBetween: 15
       },
       1200: {
         slidesPerView: 5,
-        spaceBetween: 12,
+        spaceBetween: 15
       }
     }
   });
+}
 
-  function setActiveDot() {
-    dots?.querySelectorAll(".testimonial-dot").forEach((dot, index) => {
-      dot.classList.toggle("active", index === testimonialSwiper.realIndex % siteData.testimonials.length);
-    });
+function initTestimonialPopup() {
+  const popup = document.querySelector(".testimonial-popup");
+  const dialog = document.querySelector(".testimonial-dialog");
+  const body = document.querySelector(".testimonial-popup-body");
+  if (!popup || !dialog || !body) return;
+
+  function closePopup() {
+    popup.hidden = true;
+    dialog.removeAttribute("open");
+    document.body.classList.remove("popup-open");
   }
 
-  dots?.addEventListener("click", event => {
-    const dot = event.target.closest(".testimonial-dot");
-    if (!dot) return;
-    testimonialSwiper.slideToLoop(Number(dot.dataset.testimonialDot));
+  document.addEventListener("click", event => {
+    const button = event.target.closest(".testimonial-read-more, .moreless-button");
+    if (!button) return;
+    event.preventDefault();
+    const item = siteData.testimonials[Number(button.dataset.testimonialIndex)];
+    const shortText = item.shortText || [item.role, item.review ? `(${item.review}` : ""].filter(Boolean).join(" ");
+    const moreText = item.moreText || item.fullReview || "";
+    body.innerHTML = `
+      <div class="popup-flex">
+        <img src="${item.image}" class="popup-img" alt="${item.name}">
+        <div class="popup-right">
+          <h4>${item.name}</h4>
+          <p class="popup-title"><strong>${item.university}</strong></p>
+          <div class="popup-stars" aria-label="5 stars">${"<span>&#9733;</span>".repeat(5)}</div>
+          <p class="popup-text">${shortText} ${moreText}</p>
+        </div>
+      </div>
+    `;
+    popup.hidden = false;
+    dialog.setAttribute("open", "");
+    document.body.classList.add("popup-open");
   });
 
-  testimonialSwiper.on("slideChange", setActiveDot);
-  setActiveDot();
+  popup.querySelectorAll(".testimonial-popup-overlay, .testimonial-popup-close").forEach(element => {
+    element.addEventListener("click", closePopup);
+  });
+
+  document.addEventListener("keydown", event => {
+    if (event.key === "Escape" && !popup.hidden) closePopup();
+  });
 }
 
 function initDestinationSlider() {
   if (!document.querySelector(".destinationSwiper") || !window.Swiper) return;
+  if (window.matchMedia("(max-width: 767px)").matches) return;
   new Swiper(".destinationSwiper", {
     slidesPerView: 4.2,
     spaceBetween: 8,
@@ -320,6 +350,7 @@ function initStaticForms() {
   document.querySelectorAll("form").forEach(form => {
     form.addEventListener("submit", event => {
       event.preventDefault();
+      form.reset();
     });
   });
 }
@@ -334,6 +365,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderPartners();
   renderWhyChooseUs();
   renderTestimonials();
+  initTestimonialPopup();
   initDestinationSlider();
   initScrollAnimations();
   initStaticForms();
