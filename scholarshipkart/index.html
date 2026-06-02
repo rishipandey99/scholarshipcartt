@@ -8,7 +8,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome link -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
     <!-- Swiper CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
     <!-- Google Fonts -->
@@ -354,7 +353,8 @@ section{padding-top: 60px; padding-bottom: 60px;}
             position: relative; }
 
         /* Overlay to darken the background slightly if needed */
-.why-choose-section::before { content: ''; position: absolute;  background-image: url('./images/choose-us-background-img.jpg'); background-size: cover; background-position: bottom; top: 0%; left: 5%; right: 5%; bottom: 0%; background-color: rgba(255, 255, 255, 0.1); }
+/* .why-choose-section::before { content: ''; position: absolute;  background-image: url('./images/choose-us-background-img.jpg'); background-size: cover; background-position: bottom; top: 0%; left: 5%; right: 5%; bottom: 0%; background-color: rgba(255, 255, 255, 0.1); } */
+.why-choose-section .container{background-image: url('./images/choose-us-background-img.jpg'); background-size: cover; background-position: bottom;padding: 50px 0;}
         /* Dark Purple Card */
  .why-choose-section .purple-card { background: #332F60F0;color: #ffffff; position: relative; z-index: 2; padding: 40px 40px; box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);}
         /* Left Side Text Content */
@@ -526,20 +526,19 @@ section.testimonials-section{padding-top: 80px;}
  .form-card form .row .col-md-6:first-child{    padding-right: 12px;}
 
 }
-.testimonial-section {
-  padding-top: 80px;
+.restored-testimonial-section {
+  padding-top: 20px;
   background: #fff;
   overflow: hidden;
 }
-.testimonial-section { display: none; }
-.testimonial-slider {
+.restored-testimonial-slider {
   position: relative;
   max-width: 1320px;
   margin: 0 auto;
-  padding: 45px 0 28px;
+  padding: 6px 0 42px;
 }
 .testimonialSwiper {
-  padding: 0 0 24px;
+  padding: 12px 0 24px;
   overflow: hidden;
 }
 .testimonialSwiper .swiper-slide {
@@ -548,7 +547,7 @@ section.testimonials-section{padding-top: 80px;}
 }
 .testimonial-card {
   width: 100%;
-  height: 465px;
+  height: 410px;
   overflow: hidden;
   border-radius: 10px;
   background: #fff;
@@ -562,8 +561,8 @@ section.testimonials-section{padding-top: 80px;}
 }
 .testimonial-top {
   position: relative;
-  height: 140px;
-  padding: 34px 18px 0;
+  height: 174px;
+  padding: 39px 18px 0;
   background: #2f2a6b;
   color: #fff;
 }
@@ -574,20 +573,20 @@ section.testimonials-section{padding-top: 80px;}
   bottom: -1px;
   z-index: 1;
   width: 100%;
-  height: 58px;
+  height: 56px;
   pointer-events: none;
 }
 .testimonial-wave path { fill: #fff; }
 .testimonial-top h3 {
   position: relative;
   z-index: 2;
-  margin: 0 0 10px;
+  margin: 0 0 9px;
   color: #fff;
   font-size: 15px;
   font-weight: 700;
   line-height: 1.2;
 }
-.testimonial-top .stars {
+.restored-stars {
   position: relative;
   z-index: 2;
   display: flex;
@@ -600,10 +599,10 @@ section.testimonials-section{padding-top: 80px;}
 .student-photo-wrap {
   position: absolute;
   left: 50%;
-  bottom: -64px;
+  bottom: -58px;
   z-index: 3;
-  width: 128px;
-  height: 128px;
+  width: 114px;
+  height: 114px;
   overflow: hidden;
   border: 5px solid #fff;
   border-radius: 50%;
@@ -619,10 +618,10 @@ section.testimonials-section{padding-top: 80px;}
 }
 .testimonial-card:hover .student-photo { transform: scale(1.08); }
 .testimonial-body {
-  padding: 91px 30px 24px;
+  padding: 88px 28px 26px;
 }
 .testimonial-body h4 {
-  margin: 0 0 8px;
+  margin: 0 0 2px;
   color: #15172b;
   font-size: 18px;
   font-weight: 800;
@@ -630,35 +629,20 @@ section.testimonials-section{padding-top: 80px;}
 }
 .testimonial-role {
   display: block;
-  color: #4f5160;
+  color: #737373;
   font-size: 13px;
   font-weight: 400;
-  line-height: 1.9;
+  line-height: 1.35;
 }
 .testimonial-body p {
-  display: inline;
-  margin: 20px auto 0;
+  margin: 17px auto 0;
   max-width: 262px;
   color: #111427;
   font-size: 13px;
   font-weight: 400;
-  line-height: 1.9;
+  line-height: 1.72;
 }
-.testimonial-read-more {
-  position: relative;
-  z-index: 2;
-  display: inline;
-  margin-top: 0;
-  margin-left: 5px;
-  border: 0;
-  background: transparent;
-  color: #332F60;
-  font: inherit;
-  font-size: 13px;
-  font-weight: 600;
-  text-decoration: none;
-}
-.testimonial-nav {
+.restored-testimonial-nav {
   position: absolute;
   top: 45%;
   z-index: 5;
@@ -673,17 +657,12 @@ section.testimonials-section{padding-top: 80px;}
   box-shadow: 0 12px 24px rgba(17, 17, 17, 0.18);
   transition: background-color 220ms ease, transform 220ms ease;
 }
-.testimonial-section .testimonial-nav,
-.testimonial-section .testimonial-dots {
-  display: none;
-}
-.testimonial-nav:hover,
-.testimonial-nav:focus-visible {
+.restored-testimonial-nav:hover {
   background: #0ea5e9;
   transform: translateY(-2px);
 }
-.testimonial-prev { left: -32px; }
-.testimonial-next { right: -32px; }
+.testimonial-prev { left: -21px; }
+.testimonial-next { right: -21px; }
 .testimonial-dots {
   position: static;
   display: flex;
@@ -701,20 +680,6 @@ section.testimonials-section{padding-top: 80px;}
   transition: width 220ms ease, background-color 220ms ease;
 }
 .testimonial-dots .swiper-pagination-bullet-active {
-  width: 24px;
-  border-radius: 999px;
-  background: #2f2a6b;
-}
-.testimonial-dot {
-  width: 9px;
-  height: 9px;
-  border: 0;
-  border-radius: 50%;
-  background: #d6d6df;
-  padding: 0;
-  transition: width 220ms ease, background-color 220ms ease;
-}
-.testimonial-dot.active {
   width: 24px;
   border-radius: 999px;
   background: #2f2a6b;
@@ -770,43 +735,6 @@ section.testimonials-section{padding-top: 80px;}
   font-weight: 600;
   cursor: pointer;
   margin-left: 5px;
-}
-.testimonial-popup {
-  position: fixed;
-  inset: 0;
-  z-index: 1050;
-  display: grid;
-  place-items: center;
-  padding: 20px;
-}
-.testimonial-popup[hidden] { display: none; }
-.testimonial-popup-overlay {
-  position: absolute;
-  inset: 0;
-  border: 0;
-  background: rgba(0, 0, 0, 0.6);
-}
-.testimonial-dialog {
-  position: relative;
-  z-index: 1;
-  width: min(100%, 600px);
-  margin: 0;
-  border: 0;
-  border-radius: 10px;
-  padding: 20px;
-  background: #fff;
-  color: #111;
-}
-.testimonial-dialog[open] { display: block; }
-.testimonial-popup-close {
-  position: absolute;
-  top: 8px;
-  right: 14px;
-  border: 0;
-  background: transparent;
-  color: #111;
-  font-size: 32px;
-  line-height: 1;
 }
     </style>
 </head>
@@ -1286,18 +1214,62 @@ section.testimonials-section{padding-top: 80px;}
 
 <!-- ================================== Two Swiper Section =========================================== -->
 
-<section class="section partners-section">
+<section class="partners-section">
         <div class="container text-center main-title">
             <h2 class="section-title">Our Partners</h2>
             <p class="section-subtitle">Trained by the globally recognised universities to help students secure admissions faster.</p>
+        </div>
 
+        <div class="container">
             <div class="partner-rows" aria-hidden="true">
                 <div class="partner-marquee partner-left">
-                    <div class="partner-track" id="partnersTop"></div>
+                    <div class="partner-track">
+                        <div class="partner-set">
+                            <div class="partner-logo"><span class="logo-badge logo-travel">Travel</span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-octane">Octane<span class="logo-sub">FITNESS</span></span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-life">LifeFitness<span class="logo-sub">interactive fitness solutions</span></span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-smile">Smile</span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-true">TRUE</span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-cybex">CYBEX</span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-mockup">Mockup</span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-precor">PRECOR</span></div>
+                        </div>
+                        <div class="partner-set">
+                            <div class="partner-logo"><span class="logo-badge logo-travel">Travel</span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-octane">Octane<span class="logo-sub">FITNESS</span></span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-life">LifeFitness<span class="logo-sub">interactive fitness solutions</span></span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-smile">Smile</span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-true">TRUE</span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-cybex">CYBEX</span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-mockup">Mockup</span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-precor">PRECOR</span></div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="partner-marquee partner-right">
-                    <div class="partner-track" id="partnersBottom"></div>
+                    <div class="partner-track">
+                        <div class="partner-set">
+                            <div class="partner-logo"><span class="logo-badge logo-true">TRUE</span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-cybex">CYBEX</span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-mockup">Mockup</span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-precor">PRECOR</span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-travel">Travel</span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-octane">Octane<span class="logo-sub">FITNESS</span></span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-life">LifeFitness<span class="logo-sub">interactive fitness solutions</span></span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-smile">Smile</span></div>
+                        </div>
+                        <div class="partner-set">
+                            <div class="partner-logo"><span class="logo-badge logo-true">TRUE</span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-cybex">CYBEX</span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-mockup">Mockup</span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-precor">PRECOR</span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-travel">Travel</span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-octane">Octane<span class="logo-sub">FITNESS</span></span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-life">LifeFitness<span class="logo-sub">interactive fitness solutions</span></span></div>
+                            <div class="partner-logo"><span class="logo-badge logo-smile">Smile</span></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -1309,7 +1281,7 @@ section.testimonials-section{padding-top: 80px;}
 
  <section class="why-choose-section">
         <div class="container">
-            <div class="purple-card">
+            <div class="purple-card col-11 mx-auto">
                 <div class="row align-items-stretch">
                     
                     <div class="col-lg-6 pe-lg-5">
@@ -1376,13 +1348,134 @@ section.testimonials-section{padding-top: 80px;}
 
 <section class="testimonials-section">
         <div class="container text-center main-title">
-            <h2 class="section-title" id="testimonialSectionTitle">Students Trust Us</h2>
-            <p class="section-subtitle" id="testimonialSectionSubtitle">Trained by the globally recognised universities to help students secure admissions faster.</p>
+            <h2 class="section-title">Students Trust Us</h2>
+            <p class="section-subtitle">Trained by the globally recognised universities to help students secure admissions faster.</p>
         </div>
 
         <div class="container-fluid px-lg-5">
             <div class="swiper swiper-container mySwiper">
-                <div class="swiper-wrapper" id="testimonialTrack"></div>
+                <div class="swiper-wrapper">
+                    
+                    <div class="swiper-slide">
+                        <div class="testi-card">
+                            <div class="card-top">
+                                <h6>University of Birmingham </h6>
+                                <div class="stars">
+                                    <img src="images/Star.png" alt="Star">
+                                    <img src="images/Star.png" alt="Star">
+                                    <img src="images/Star.png" alt="Star">
+                                    <img src="images/Star.png" alt="Star">
+                                    <img src="images/Star.png" alt="Star">
+                                </div>
+                            </div>
+                            <div class="profile-img-wrapper">
+                                <img src="images/nimit.png" alt="Dazzle Healer">
+                            </div>
+                            <div class="card-bottom">
+                                <h5>Nimit Patel</h5>
+                                <!-- <p class="designation">Front End Developer</p> -->
+                                <p class="review">Dubai -university of birmingham -msc Acc and Finance ( I am truly grateful to Sunita</p>
+                                <p class="moretext review"> Ma’am for her constant support and guidance throughout my master’s application process. From the very beginning, she explained every step clearly and helped me prepare strong applications. She was always approachable, patient, and professional, answering all my questions with care Thanks to her dedicated efforts I successfully secured admission for my Master’s in Dubai I highly recommend Sunita Ma’am to anyone looking for expert guidance in their higher education journey.)</p>
+                                <a class="moreless-button" href="#" style="position: relative;z-index: 9;">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="testi-card">
+                            <div class="card-top">
+                                <h6>University Of Strathclyde</h6>
+                                <div class="stars">
+                                    <img src="images/Star.png" alt="Star">
+                                    <img src="images/Star.png" alt="Star">
+                                    <img src="images/Star.png" alt="Star">
+                                    <img src="images/Star.png" alt="Star">
+                                    <img src="images/Star.png" alt="Star">
+                                </div>
+                            </div>
+                            <div class="profile-img-wrapper">
+                                <img src="images/Kashmira_Strath.png" alt="Dazzle Healer">
+                            </div>
+                            <div class="card-bottom">
+                                <h5>Kashmira Patil</h5>
+                                <!-- <p class="designation">Front End Developer</p> -->
+                                <p class="review">University Of Strathclyde -UK - MSc Advanced Construction Technologies and BIM</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="testi-card">
+                            <div class="card-top">
+                                <h6>Uni of Nottingham</h6>
+                                <div class="stars">
+                                    <img src="images/Star.png" alt="Star">
+                                    <img src="images/Star.png" alt="Star">
+                                    <img src="images/Star.png" alt="Star">
+                                    <img src="images/Star.png" alt="Star">
+                                    <img src="images/Star.png" alt="Star">
+                                </div>
+                            </div>
+                            <div class="profile-img-wrapper">
+                                <img src="images/testimonial-img.jpg" alt="Dazzle Healer">
+                            </div>
+                            <div class="card-bottom">
+                                <h5>Kejal Manoj Pardeshi</h5>
+                                <!-- <p class="designation">Front End Developer</p> -->
+                                <p class="review">Uni of Nottingham -UK - MSc Sports and Exercise Medicine  ( I have had a lovely</p>
+                                <p class="moretext review"> experience with scholarshipkart and sunita ma'am. She is amazing at what she does and will guide you through this process and make it as smooth for you as possible. With clear information from the beginning and regular updates about the process I cannot thank her enough for her support throughout.)</p>
+                                <a class="moreless-button" href="#" style="position: relative;z-index: 9;">Read more</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="testi-card">
+                            <div class="card-top">
+                                <h6>SKema Business school</h6>
+                                <div class="stars">
+                                    <img src="images/Star.png" alt="Star">
+                                    <img src="images/Star.png" alt="Star">
+                                    <img src="images/Star.png" alt="Star">
+                                    <img src="images/Star.png" alt="Star">
+                                    <img src="images/Star.png" alt="Star">
+                                </div>
+                            </div>
+                            <div class="profile-img-wrapper">
+                                <img src="images/testimonial-img.jpg" alt="Dazzle Healer">
+                            </div>
+                            <div class="card-bottom">
+                                <h5>Mishka Tillu</h5>
+                                <!-- <p class="designation">Front End Developer</p> -->
+                                <p class="review">SKema Business school -France - Msc International Marketing and Business Development</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="swiper-slide">
+                        <div class="testi-card">
+                            <div class="card-top">
+                                <h6>MET Film School</h6>
+                                <div class="stars">
+                                    <img src="images/Star.png" alt="Star">
+                                    <img src="images/Star.png" alt="Star">
+                                    <img src="images/Star.png" alt="Star">
+                                    <img src="images/Star.png" alt="Star">
+                                    <img src="images/Star.png" alt="Star">
+                                </div>
+                            </div>
+                            <div class="profile-img-wrapper">
+                                <img src="images/testimonial-img.jpg" alt="Dazzle Healer">
+                            </div>
+                            <div class="card-bottom">
+                                <h5>Ameya Gill</h5>
+                                <!-- <p class="designation">Front End Developer</p> -->
+                                <p class="review">MET Film School - BA Film -cant get her photo -she is high profile bollywood family gal</p> 
+                            </div>
+                        </div>
+                    </div> 
+
+                </div>
             </div>
         </div>
     </section>
@@ -1534,14 +1627,6 @@ section.testimonials-section{padding-top: 80px;}
   </div>
 </div>
 
-<div class="testimonial-popup" hidden>
-  <button class="testimonial-popup-overlay" type="button" aria-label="Close testimonial"></button>
-  <dialog class="testimonial-dialog" aria-label="Student testimonial">
-    <button class="testimonial-popup-close" type="button" aria-label="Close testimonial">&times;</button>
-    <div class="testimonial-popup-body"></div>
-  </dialog>
-</div>
-
 
 
 
@@ -1555,8 +1640,6 @@ section.testimonials-section{padding-top: 80px;}
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>  
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="js/data.js"></script>
-<script src="js/script.js"></script>
     <!-- <script>
      const studySwiper = new Swiper('.study-main-swiper', {
     loop: true,
@@ -1630,5 +1713,114 @@ section.testimonials-section{padding-top: 80px;}
         });
     </script>
 
+<!-- ==================== Testimonial Swiper Script ===================== -->
+<script>
+        const swiper = new Swiper('.mySwiper', {
+            spaceBetween: 15,
+            grabCursor: true,
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+            // Responsive breakpoints to show 5 items on desktop as requested
+            breakpoints: {
+                320: {
+                    slidesPerView: 1.2,
+                    spaceBetween: 15,
+                    centeredSlides: true
+                },
+                576: {
+                    slidesPerView: 2.2,
+                    spaceBetween: 20,
+                    centeredSlides: true
+                },
+                768: {
+                    slidesPerView: 3,
+                    spaceBetween: 15
+                },
+                992: {
+                    slidesPerView: 4,
+                    spaceBetween: 15
+                },
+                1200: {
+                    slidesPerView: 5,
+                    spaceBetween: 15
+                }
+            }
+        });
+    </script>
+<script>
+//     $('.moreless-button').click(function(e) {
+//     e.preventDefault();
+
+//     const parent = $(this).closest('.card-bottom');
+//     const moreText = parent.find('.moretext');
+
+//     moreText.slideToggle();
+
+//     $(this).text(function(i, text){
+//         return text === "Read more" ? "Read less" : "Read more";
+//     });
+// });
+
+// OPEN POPUP
+$('.moreless-button').click(function(e) {
+    e.preventDefault();
+
+    const card = $(this).closest('.testi-card');
+    const parent = $(this).closest('.card-bottom');
+
+    const name = parent.find('h5').text();
+    const title = card.find('.card-top h6').text();
+
+    const shortText = parent.find('.review').first().text();
+    const fullText = parent.find('.moretext').text();
+
+    const imgSrc = card.find('.profile-img-wrapper img').attr('src');
+
+    // ⭐ Get stars dynamically
+    const stars = card.find('.stars').html();
+
+    const finalContent = `
+        <div class="popup-flex">
+            <div class="popup-left">
+                <img src="${imgSrc}" class="popup-img" alt="${name}">
+            </div>
+
+            <div class="popup-right">
+                <h4>${name}</h4>
+                <p class="popup-title"><strong>${title}</strong></p>
+
+                <div class="popup-stars">
+                    ${stars}
+                </div>
+
+                <p class="popup-text">${shortText} ${fullText}</p>
+            </div>
+        </div>
+    `;
+
+    $('.popup-body').html(finalContent);
+    $('.custom-popup').fadeIn();
+
+    $('body').addClass('popup-open'); // 🔒 lock scroll
+});
+
+
+// CLOSE POPUP (overlay + close button)
+$('.popup-close, .popup-overlay').click(function() {
+    $('.custom-popup').fadeOut();
+    $('body').removeClass('popup-open'); // 🔓 restore scroll
+});
+
+
+// ESC KEY CLOSE
+$(document).keyup(function(e) {
+    if (e.key === "Escape") {
+        $('.custom-popup').fadeOut();
+        $('body').removeClass('popup-open');
+    }
+});
+</script>
 </body>
 </html>
